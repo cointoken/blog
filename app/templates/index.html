@@ -4,10 +4,12 @@
 {% block content %}
     {% include "_article_entry.html" %}
     <div class="pagination">
-    {% if endpoint == '.index' %}
-        {{ macros.pagination_widget(pagination, endpoint) }}
-    {% else %}
-        {{ macros.pagination_widget(pagination, endpoint, id=id) }}
-    {% endif %}
+        {% if articles %} 
+            {% if endpoint == '.index' %}
+                {{ macros.pagination_widget(pagination, endpoint) }}
+            {% else %}
+                {{ macros.pagination_widget(pagination, endpoint, id=id) }}
+            {% endif %}
+        {% endif %}
     </div>
 {% endblock %}
